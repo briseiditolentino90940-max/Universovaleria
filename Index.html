@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Luces en el cielo</title>
+
+<style>
+
+/* ESTILOS GENERALES */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: #071426;
+  color: #f5f5ff;
+  line-height: 1.6;
+}
+
+header {
+  background: linear-gradient(135deg, #101c3c, #38245e);
+  text-align: center;
+  padding: 35px 20px;
+  border-bottom: 3px solid #a98bff;
+}
+
+header h1 {
+  font-size: 38px;
+  color: white;
+  letter-spacing: 2px;
+}
+
+header p {
+  color: #d9ccff;
+  margin-top: 8px;
+}
+
+/* MENÚ */
+
+.main-nav {
+  background: #111d35;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px;
+}
+
+.main-nav button {
+  background: #34275d;
+  color: white;
+  border: 1px solid #a98bff;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.main-nav button:hover,
+.main-nav button.active {
+  background: #9b79e8;
+}
+
+/* BUSCADOR */
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px;
+}
+
+.search-box input {
+  width: 280px;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #a98bff;
+}
+
+.search-box button {
+  background: #8d70d6;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* CONTENIDO */
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 25px;
+}
+
+.tab-content {
+  display: none;
+  animation: aparecer 0.5s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+h2 {
+  color: #c6aaff;
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+h3 {
+  color: #d9c8ff;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* IMÁGENES */
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.image-box {
+  min-height: 250px;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 2px solid #9b79e8;
+}
+
+.image-box img {
+  transition: transform 0.4s;
+}
+
+.image-box img:hover {
+  transform: scale(1.05);
+}
+
+/* INICIO */
+
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: center;
+  background: #111f3a;
+  padding: 25px;
+  border-radius: 18px;
+}
+
+.hero-image {
+  height: 320px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.hero-text {
+  padding: 15px;
+}
+
+/* BOTONES */
+
+.button-container {
+  margin-top: 20px;
+}
+
+.right-aligned {
+  text-align: right;
+}
+
+.action-btn {
+  background: linear-gradient(135deg, #9675e6, #59458f);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.action-btn:hover {
+  background: #b49aff;
+  transform: scale(1.04);
+}
+
+/* MARQUESINAS */
+
+.marquee-box {
+  background: #302052;
+  color: #f2dfff;
+  padding: 12px;
+  margin-top: 25px;
+  border-radius: 12px;
+  font-size: 18px;
+  border: 1px solid #a98bff;
+}
+
+/* CONTENIDO */
+
+.wireframe-grid-alt,
+.que-son-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.top-row,
+.bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: center;
+}
+
+.text-block {
+  background: #111f3a;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid #55437e;
+}
+
+/* TARJETAS */
+
+.cards-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.info-card {
+  background: #111f3a;
+  border: 1px solid #8d70d6;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card-header {
+  background: #49376e;
+  padding: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body ul {
+  padding-left: 20px;
+}
+
+.card-body li {
+  margin-bottom: 10px;
+}
+
+/* TABLA */
+
+.table-container {
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #111f3a;
+  text-align: center;
+}
+
+th, td {
+  border: 1px solid #a98bff;
+  padding: 12px;
+}
+
+th {
+  background: #49376e;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background: #1b2b4b;
+}
+
+tr:hover {
+  background: #382b5e;
+}
+
+/* CONTACTO */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: center;
+}
+
+.contact-form {
+  background: #111f3a;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid #8d70d6;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #d9c8ff;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #8d70d6;
+  border-radius: 8px;
+  background: #f5f0ff;
+  color: #17122b;
+  font-family: Arial, sans-serif;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.contact-image-box {
+  height: 350px;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 2px solid #9b79e8;
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+  background: #101c35;
+  color: #d9ccff;
+  text-align: center;
+  padding: 22px;
+  margin-top: 35px;
+  border-top: 2px solid #8d70d6;
+}
+
+/* DISEÑO RESPONSIVO */
+
+@media (max-width: 768px) {
+
+  header h1 {
+    font-size: 28px;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  .hero-section,
+  .top-row,
+  .bottom-row,
+  .cards-row,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image {
+    height: 230px;
+  }
+
+  .image-box {
+    min-height: 220px;
+  }
+
+  .contact-image-box {
+    height: 230px;
+  }
+
+  .main-nav {
+    flex-direction: column;
+  }
+
+  .main-nav button {
+    width: 100%;
+  }
+
+  .search-box input {
+    width: 70%;
+  }
+
+  table {
+    font-size: 13px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ENCABEZADO -->
+
+<header>
+
+  <h1> Luces en el cielo </h1>
+
+  <p>Descubre la magia de las auroras boreales y australes</p>
+
+</header>
+
+<!-- MENÚ DE NAVEGACIÓN -->
+
+<nav class="main-nav">
+
+  <button id="tab-inicio"
+  class="active"
+  onclick="switchTab('inicio')">
+    Inicio
+  </button>
+
+  <button id="tab-como-se-hace"
+  onclick="switchTab('como-se-hace')">
+    ¿Cómo se hace?
+  </button>
+
+  <button id="tab-que-son"
+  onclick="switchTab('que-son')">
+    Información
+  </button>
+
+  <button id="tab-contactos"
+  onclick="switchTab('contactos')">
+    Contactos
+  </button>
+
+</nav>
+
+<!-- BUSCADOR -->
+
+<div class="search-box">
+
+  <input type="text"
+  id="busqueda"
+  placeholder="Buscar información...">
+
+  <button onclick="searchPage()">Buscar</button>
+
+</div>
+
+<main>
+
+<!-- INICIO -->
+
+<section id="content-inicio" class="tab-content active">
+
+  <div class="hero-section">
+
+    <div class="hero-text">
+
+      <h2>Bienvenidos a Luces en el cielo</h2>
+
+      <p>
+        El universo está lleno de maravillas y uno de los
+        espectáculos naturales más sorprendentes son las
+        auroras boreales y australes.
+      </p>
+
+      <p>
+        Desde la antigüedad, la humanidad ha observado
+        la bóveda celeste con asombro. Las auroras iluminan
+        nuestras noches con hermosos tonos verdes,
+        violetas, rosas y rojos.
+      </p>
+
+      <p>
+        Explora con nosotros el origen físico de estos
+        fenómenos luminosos y descubre sus secretos.
+      </p>
+
+      <div class="button-container">
+
+        <button class="action-btn"
+        onclick="switchTab('como-se-hace')">
+          Explorar
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="hero-image">
+
+      <img
+      src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7"
+      alt="Aurora boreal iluminando el cielo">
+
+    </div>
+
+  </div>
+
+  <!-- MARQUESINA 1 -->
+
+  <div class="marquee-box">
+
+    <marquee behavior="alternate" scrollamount="5">
+       ¡Bienvenidos al maravilloso mundo de las luces del cielo! 
+    </marquee>
+
+  </div>
+
+  <!-- MARQUESINA 2 -->
+
+  <div class="marquee-box">
+
+    <marquee direction="right" scrollamount="4">
+      Mira hacia el cielo: siempre hay algo fascinante por descubrir
+    </marquee>
+
+  </div>
+
+</section>
+
+<!-- COMO SE HACE -->
+
+<section id="content-como-se-hace" class="tab-content">
+
+  <h2>¿Cómo se producen las auroras?</h2>
+
+  <div class="wireframe-grid-alt">
+
+    <div class="top-row">
+
+      <div class="text-block">
+
+        <h3>El origen de las luces</h3>
+
+        <p>
+          Las auroras se generan cuando partículas con
+          carga energética provenientes del Sol
+          interactúan con el campo magnético terrestre
+          y los gases de la atmósfera.
+        </p>
+
+        <p>
+          Durante este proceso, los átomos de oxígeno
+          y nitrógeno reciben energía y posteriormente
+          la liberan en forma de luz.
+        </p>
+
+      </div>
+
+      <div class="image-box">
+
+        <img
+        src="https://images.unsplash.com/photo-1483347756197-71ef80e95f73"
+        alt="Aurora boreal sobre un paisaje">
+
+      </div>
+
+    </div>
+
+    <div class="bottom-row">
+
+      <div class="image-box">
+
+        <img
+        src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7"
+        alt="Aurora boreal verde">
+
+      </div>
+
+      <div class="text-block">
+
+        <h3>¿De dónde vienen?</h3>
+
+        <p>
+          Tienen su origen en la actividad solar.
+          El campo magnético de la Tierra dirige parte
+          de las partículas hacia las regiones polares,
+          donde interactúan con los gases atmosféricos.
+        </p>
+
+        <div class="button-container right-aligned">
+
+          <button class="action-btn"
+          onclick="switchTab('que-son')">
+            Siguiente
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- INFORMACIÓN -->
+
+<section id="content-que-son" class="tab-content">
+
+  <div class="que-son-grid">
+
+    <div class="top-row">
+
+      <div class="text-block">
+
+        <h2>¿Qué son las auroras?</h2>
+
+        <p>
+          Son fenómenos naturales de luz que aparecen
+          principalmente cerca de los polos terrestres.
+          Se conocen como auroras boreales en el norte
+          y auroras australes en el sur.
+        </p>
+
+        <p>
+          Sus colores dependen de los gases con los que
+          interactúan las partículas solares y de la
+          altura a la que ocurre el fenómeno.
+        </p>
+
+      </div>
+
+      <div class="image-box">
+
+        <img
+        src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e"
+        alt="Paisaje natural bajo el cielo">
+
+      </div>
+
+    </div>
+
+    <h2>Colores de las auroras</h2>
+
+    <p>
+      Conoce algunos de los colores que pueden presentar
+      las auroras polares y los gases relacionados con ellos.
+    </p>
+
+    <!-- TABLA -->
+
+    <div class="table-container">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th colspan="4">
+              Características de las auroras polares
+            </th>
+
+          </tr>
+
+          <tr>
+
+            <th>Color</th>
+            <th>Gas relacionado</th>
+            <th>Aspecto</th>
+            <th>Información</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>Verde</td>
+            <td>Oxígeno</td>
+            <td>Brillo luminoso</td>
+
+            <td rowspan="2">
+              El oxígeno puede producir tonos verdes
+              y rojos dependiendo de las condiciones
+              y la altitud.
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>Rojo</td>
+            <td>Oxígeno</td>
+            <td>Resplandor rojizo</td>
+
+          </tr>
+
+          <tr>
+
+            <td>Azul o violeta</td>
+            <td>Nitrógeno</td>
+            <td>Franjas y destellos</td>
+
+            <td>
+              Puede aportar tonos azulados y púrpuras.
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <!-- TARJETAS DE INFORMACIÓN -->
+
+    <div class="cards-row">
+
+      <div class="info-card">
+
+        <div class="card-header">
+          Datos curiosos
+        </div>
+
+        <div class="card-body">
+
+          <ul>
+
+            <li>
+              Ocurren en ambos polos terrestres.
+            </li>
+
+            <li>
+              Planetas como Júpiter y Saturno
+              también tienen auroras.
+            </li>
+
+            <li>
+              Sus colores dependen de los gases
+              atmosféricos.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="info-card">
+
+        <div class="card-header">
+          Lugares donde se pueden observar
+        </div>
+
+        <div class="card-body">
+
+          <ul>
+
+            <li>
+              <strong>Noruega:</strong>
+              un lugar popular para observar auroras.
+            </li>
+
+            <li>
+              <strong>Islandia:</strong>
+              conocida por sus paisajes y cielos nocturnos.
+            </li>
+
+            <li>
+              <strong>Canadá y Alaska:</strong>
+              regiones donde pueden observarse auroras boreales.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="button-container right-aligned">
+
+      <button class="action-btn"
+      onclick="switchTab('contactos')">
+        Siguiente
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACTOS -->
+
+<section id="content-contactos" class="tab-content">
+
+  <h2>Contactos</h2>
+
+  <p>
+    Si tienes alguna pregunta o comentario sobre las
+    luces del cielo, puedes completar el siguiente formulario.
+  </p>
+
+  <div class="contact-grid">
+
+    <form class="contact-form"
+    onsubmit="alert('¡Mensaje enviado! Este formulario es una demostración.'); return false;">
+
+      <div class="form-group">
+
+        <label for="nombre">Nombre</label>
+
+        <input
+        type="text"
+        id="nombre"
+        placeholder="Escribe tu nombre"
+        required>
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="correo">Correo electrónico</label>
+
+        <input
+        type="email"
+        id="correo"
+        placeholder="ejemplo@correo.com"
+        required>
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="telefono">Teléfono</label>
+
+        <input
+        type="tel"
+        id="telefono"
+        placeholder="Escribe tu teléfono">
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="mensaje">Mensaje</label>
+
+        <textarea
+        id="mensaje"
+        rows="4"
+        placeholder="Escribe tu mensaje aquí..."
+        required></textarea>
+
+      </div>
+
+      <div class="button-container">
+
+        <button type="submit" class="action-btn">
+          Enviar mensaje
+        </button>
+
+      </div>
+
+    </form>
+
+    <div class="contact-image-box">
+
+      <img
+      src="https://images.unsplash.com/photo-1483347756197-71ef80e95f73"
+      alt="Cielo nocturno y auroras">
+
+    </div>
+
+  </div>
+
+  <div class="button-container">
+
+    <button class="action-btn"
+    onclick="switchTab('inicio')">
+      Regresar al inicio
+    </button>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- PIE DE PÁGINA -->
+
+<footer>
+
+  ✨ Luces en el cielo | Descubre las maravillas del universo ✨
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* CAMBIAR ENTRE SECCIONES */
+
+function switchTab(tabId) {
+
+  document.querySelectorAll('.tab-content').forEach(content => {
+    content.classList.remove('active');
+  });
+
+  const activeContent =
+  document.getElementById('content-' + tabId);
+
+  if (activeContent) {
+    activeContent.classList.add('active');
+  }
+
+  document.querySelectorAll('.main-nav button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  const activeBtn =
+  document.getElementById('tab-' + tabId);
+
+  if (activeBtn) {
+    activeBtn.classList.add('active');
+  }
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+
+}
+
+/* BUSCADOR */
+
+function searchPage() {
+
+  const term = document.getElementById('busqueda')
+  .value.toLowerCase().trim();
+
+  if (!term) {
+    alert('Escribe algo para buscar.');
+    return;
+  }
+
+  const sections =
+  [...document.querySelectorAll('.tab-content')];
+
+  const match = sections.find(section =>
+    section.innerText.toLowerCase().includes(term)
+  );
+
+  if (match) {
+
+    switchTab(match.id.replace('content-', ''));
+
+    alert('Se encontró la información.');
+
+  } else {
+
+    alert('No se encontró esa información.');
+
+  }
+
+}
+
+/* BUSCAR TAMBIÉN CON ENTER */
+
+document.getElementById('busqueda').addEventListener('keydown', function(event) {
+
+  if (event.key === 'Enter') {
+    searchPage();
+  }
+
+});
+
+</script>
+
+</body>
+</html>
